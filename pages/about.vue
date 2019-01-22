@@ -1,10 +1,10 @@
-<template lang="html">
-  <h1>Home</h1>
+<template>
+  <h1>About</h1>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'AboutPage'
 }
 </script>
 
