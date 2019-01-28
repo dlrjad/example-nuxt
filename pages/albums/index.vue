@@ -3,11 +3,6 @@
     <header>
       <h1>Albums de la página</h1>
     </header>
-    <!--<div 
-      v-for="album in albums" 
-      :key="album.id">
-      <h3>{{ album.title }}</h3>
-    </div>-->
     <div class="card-columns">
       <AlbumCard
         v-for="album in albums"

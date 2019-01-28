@@ -1,21 +1,19 @@
 <template>
-  <div class="container">
-    <header>
-      <h1><strong>ID</strong> del album: {{ this.$route.params.id }}</h1>
-      <h3>{{ album.title }}</h3>
-      <nuxt-link to="/albums">Volver</nuxt-link>
-    </header>
-    <!--<div 
-      v-for="photo in photos"
-      :key="photo.id"
-      class="">
-      <img 
-        :src="photo.url" 
-        alt="">
-    </div>-->
-    
+  <div class="container_">
     <div class="card">
-      <img :src="url">
+      <div class="card-body">
+        <header>
+          <h3 class="card-title"><strong>ID</strong> del album: {{ this.$route.params.id }}</h3>
+        </header>
+        <h4 class="card-subtitle mb-2 text-muted">{{ album.title }}</h4>
+        <nuxt-link :to="`/albums/portadas/${album.id}`">
+          <img :src="url">
+        </nuxt-link>
+        <nuxt-link 
+          to="/albums" 
+          class="btn btn-primary"><span>Volver</span>
+        </nuxt-link>
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +21,7 @@
 <script>
 import axios from 'axios'
 import env from '@/config/env'
+import json from '@/data/coverAlbum.json'
 export default {
   name: 'AlbumIdPage',
   data() {
@@ -49,13 +48,40 @@ export default {
     let albumResponse = await axios.get(`
       ${env.endpoint}/albums/${this.$route.params.id}`)
     this.album = albumResponse.data
-    let photosResponse = await axios.get(`
+
+    let infoAlbum = json.find(el => el.albumId === this.album.id)
+    this.url = infoAlbum.url
+
+    /*let photosResponse = await axios.get(`
       ${env.endpoint}/albums/${this.$route.params.id}/photos`)
     this.photos = photosResponse.data
-    this.url = this.photos[0].url
+    this.url = this.photos[0].url*/
   }
 }
 </script>
 
 <style scoped>
+.container_ {
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card {
+  width: 26.5rem;
+  display: flex;
+  align-items: center;
+  border-color: gray;
+}
+.btn.btn-primary {
+  display: flex;
+  margin-top: 1em;
+}
+.btn.btn-primary span {
+  margin-left: calc(50% - 1em);
+}
 </style>

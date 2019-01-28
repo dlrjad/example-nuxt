@@ -1,3 +1,10 @@
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
 .container {
   transition: all 0.4s ease-in;
 }
@@ -12,5 +19,5 @@
 
 header {
   color: blue;
-  margin: 50px 0
+  margin: 40px 0
 }
