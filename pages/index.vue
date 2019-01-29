@@ -1,24 +1,31 @@
 <template lang="html">
-  <div>
-    <h1>Home</h1>
-    <calendar
-      :weekends="false" 
-      class="calendar"/>
+  <div class="container">
+    <header>
+      <h1>Home</h1>
+    </header>
+    <nuxt-link 
+      :to="`/albums/`" 
+      class="btn btn-primary">Ver los albumns</nuxt-link>
+    <nuxt-link
+      :to="`./calendar`" 
+      class="btn btn-primary">Calendario</nuxt-link>
+    <nuxt-link
+      :to="`./about`" 
+      class="btn btn-primary">About</nuxt-link>
   </div>
 </template>
 
 <script>
-import calendar from 'calendar-checker/src/components/calendar'
 export default {
-  name: 'IndexPage',
-  components: {
-    calendar
-  }
+  name: 'IndexPage'
 }
 </script>
 
 <style scoped>
-.calendar {
-  --primary: red;
+.btn.btn-primary {
+  display: flex;
+  flex-direction: column;
+  width: 10em;
+  margin: 5px 0;
 }
 </style>

@@ -1,6 +1,6 @@
 body,
 html {
-  height: 100%;
+  height: calc(100% - 20px);
   width: 100%;
   margin: 0;
 }
@@ -19,5 +19,7 @@ html {
 
 header {
   color: blue;
-  margin: 40px 0
+  margin: 40px 0;
+  /*position: absolute;
+  top: 40px;*/
 }

@@ -2,8 +2,11 @@
   <div class="container">
     <header>
       <h1>Albums de la página</h1>
+      <nuxt-link 
+        :to="`/`" 
+        class="btn btn-primary">Home</nuxt-link>
     </header>
-    <div class="card-columns">
+    <div class="row justify-content-around">
       <AlbumCard
         v-for="album in albums"
         :album="album" 

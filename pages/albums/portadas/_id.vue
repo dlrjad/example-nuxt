@@ -1,17 +1,26 @@
-<template>
-  <div>
-    <h1>Portada del album: {{ this.$route.params.id }}</h1>
-    <img 
-      :src="url" 
-      alt="">
-    <nuxt-link :to="`/albums/${this.$route.params.id}`">Volver</nuxt-link>
+<template lang="html">
+  <div class="container">
+    <header>
+      <h1>Información portada del album</h1>
+      <nuxt-link 
+        :to="`/albums/${$route.params.id}`"
+        class="btn btn-primary">Volver</nuxt-link>
+    </header>
+    <CoverAlbum
+      :id="$route.params.id"
+      :src="url"
+    />
   </div>
 </template>
 
 <script>
 import json from '@/data/coverAlbum.json'
+import CoverAlbum from '@/components/CoverAlbum'
 export default {
   name: 'PortadaIdPage',
+  components: {
+    CoverAlbum
+  },
   data() {
     return {
       url: null

@@ -1,6 +1,10 @@
 <template lang="html">
-  <div class="card card-body">
-    <h3>{{ album.title }} - <strong>ID:</strong> {{ album.id }}</h3>
+  <div 
+    class="card card-body col-sm-3 m-1">
+    <div>
+      <h3 class="text ellipsis">{{ album.title }}</h3>
+    </div>
+    <h4><strong>ID:</strong> {{ album.id }}</h4>
     <nuxt-link 
       :to="`/albums/${album.id}`" 
       class="btn btn-primary">Ver álbum</nuxt-link>
@@ -20,7 +24,12 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  min-height: 4em;
+.text.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+h4 {
+  min-height: 2em;
 }
 </style>
