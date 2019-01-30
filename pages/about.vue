@@ -23,9 +23,11 @@ export default {
 <style scoped>
 p {
   font-family: 'arial';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 100px;
 }
 </style>

@@ -1,8 +1,26 @@
-body,
-html {
-  height: calc(100% - 20px);
-  width: 100%;
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 5rem;
+  min-height: 95vh;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .container {
@@ -19,7 +37,5 @@ html {
 
 header {
   color: blue;
-  margin: 40px 0;
-  /*position: absolute;
-  top: 40px;*/
+  margin: 5vh 0;
 }

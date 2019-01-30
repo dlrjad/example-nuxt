@@ -30,14 +30,15 @@ export default {
 
 <style scoped>
 .container_ {
-  /*display: flex;
+  height: 70vh;
+  display: flex;
   justify-content: center;
-  align-items: center;*/
+  align-items: center;
 
-  position: absolute;
+  /*position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);*/
 }
 .card {
   width: 26.5rem;

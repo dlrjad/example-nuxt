@@ -6,12 +6,16 @@
         :to="`/`" 
         class="btn btn-primary">Home</nuxt-link>
     </header>
-    <div class="row justify-content-around">
-      <AlbumCard
-        v-for="album in albums"
-        :album="album" 
-        :key="album.id" />
-    </div>
+    <div class="center">
+      <div class="row justify-content-around">
+        <AlbumCard 
+          v-for="album in albums_" 
+          :album="album" 
+          :key="album.id" />
+      </div>
+      <Pagination
+        :albums="albums" />
+    </div>    
   </div>
 </template>
 
@@ -19,23 +23,38 @@
 import axios from 'axios'
 import env from '@/config/env'
 import AlbumCard from '@/components/AlbumCard'
+import Pagination from '@/components/Pagination'
+import { eventBus } from '@/assets/EventBus'
 export default {
   name: 'IndexPage',
   components: {
-    AlbumCard
+    AlbumCard,
+    Pagination
   },
   data() {
     return {
-      albums: []
+      albums: [],
+      albums_: []
     }
   },
   created() {
     axios.get(`${env.endpoint}/albums`).then(response => {
       this.albums = response.data
+      eventBus.$emit('Albums', this.albums)
+    })
+    eventBus.$on('AlbumPaginated', albums => {
+      this.albums_ = albums
     })
   }
 }
 </script>
 
 <style scoped>
+.center {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 </style>
